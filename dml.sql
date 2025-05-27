@@ -28,3 +28,7 @@ INSERT INTO Espacio_publico (Nom_Espa, Tiem_Uso, Hora_Soli, Num_Ficha) VALUES
 ('Cancha de Baloncesto', '01:30:00', '14:00:00', 1475002),
 ('Sala de Conferencias 1', '03:00:00', '10:30:00', 1003963),
 ('Salón de Usos Múltiples', '04:00:00', '08:00:00', 1022804);
+INSERT INTO Categoria (Categoria) VALUES
+('Portátiles'),
+('Equipo de mesa'),
+('Televisores');

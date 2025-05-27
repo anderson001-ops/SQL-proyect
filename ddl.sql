@@ -1,5 +1,3 @@
-
-
  DROP DATABASE IF EXISTS Proyecto;
 CREATE DATABASE Proyecto;
 USE Proyecto;
@@ -86,7 +84,7 @@ CREATE TABLE Roles_Usuarios(
 
 CREATE TABLE Roles(
 	Id_roles INT(5) PRIMARY KEY AUTO_INCREMENT,
-    Nom_rol INT(5)
+    Nom_rol VARCHAR(50)
     );
 
 ALTER TABLE Roles_Usuarios

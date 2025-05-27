@@ -1,4 +1,4 @@
- DROP DATABASE IF EXISTS Proyecto;
+DROP DATABASE IF EXISTS Proyecto;
 CREATE DATABASE Proyecto;
 USE Proyecto;
 
@@ -36,22 +36,19 @@ FOREIGN KEY (Id_User) REFERENCES Usuarios(Id_usuario);
 
 CREATE TABLE Tickets(
 	Id_ticket INT(5) PRIMARY KEY AUTO_INCREMENT,
-	Id_Usua INT(10),
 	Id_Equi INT(10),
 	Fecha_Repor DATE,
-	Estado VARCHAR (30),
-    Nom_estado INT(10),
-    Id_usu INT(5),
-    Est_ticket INT(10)
+	Estado VARCHAR (20),
+    Id_usu INT(5)
 );
-
-ALTER TABLE Tickets
-ADD CONSTRAINT Nom_estado
-FOREIGN KEY (Nom_estado) REFERENCES Usuarios(Id_usuario);
 
 ALTER TABLE Tickets
 ADD CONSTRAINT Id_usu
 FOREIGN KEY (Id_usu) REFERENCES Usuarios(Id_usuario);
+
+ALTER TABLE Tickets
+ADD CONSTRAINT Estado
+FOREIGN KEY (Estado) REFERENCES Estado_ticket(Nom_estado);
 
 CREATE TABLE Solicitudes(
 	Id_solicitud INT (5) PRIMARY KEY AUTO_INCREMENT,
@@ -84,7 +81,7 @@ CREATE TABLE Roles_Usuarios(
 
 CREATE TABLE Roles(
 	Id_roles INT(5) PRIMARY KEY AUTO_INCREMENT,
-    Nom_rol VARCHAR(50)
+    Nom_rol INT(5)
     );
 
 ALTER TABLE Roles_Usuarios
@@ -112,7 +109,6 @@ CREATE TABLE Elemento(
 
 CREATE TABLE Accesorios(
 Id_accesorios INT(5) PRIMARY KEY AUTO_INCREMENT,
-Acces VARCHAR(20),
 Cant INT(2),
 Nom_acce VARCHAR(30),
 Marca VARCHAR (20)
@@ -123,7 +119,7 @@ Id_categoria INT (5) PRIMARY KEY AUTO_INCREMENT,
 Categoria VARCHAR(30)
 );
 CREATE TABLE Estado_ticket(
-Nom_estado INT (10) PRIMARY KEY AUTO_INCREMENT,
+Nom_estado VARCHAR (20) PRIMARY KEY AUTO_INCREMENT,
 Historial VARCHAR(255),
 Id_cat INT(5)
 );
@@ -151,3 +147,4 @@ FOREIGN KEY (Id_elemento) REFERENCES Elemento(Id_elemento);
 ALTER TABLE Elemento_Solicitudes
 ADD CONSTRAINT Id_solicitud
 FOREIGN KEY (Id_solicitud) REFERENCES Solicitudes(Id_solicitud);
+

@@ -40,3 +40,5 @@ INSERT INTO Categoria (Categoria) VALUES
 ('Portátiles'),
 ('Equipo de mesa'),
 ('Televisores');
+#insertar solicitudes
+CALL Solitudes (2,1,1);

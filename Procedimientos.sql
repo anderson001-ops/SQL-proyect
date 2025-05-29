@@ -18,3 +18,20 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+USE `proyecto`;
+DROP procedure IF EXISTS `Solicitudes`;
+
+DELIMITER $$
+USE `proyecto`$$
+CREATE PROCEDURE `Solicitudes` (
+	IN Cantidad INT(5),
+	IN Id_usua INT(5),
+    IN Id_espa INT(5)
+)
+BEGIN
+	INSERT INTO Solicitudes (Cantidad,Id_usua,Id_espa)
+	VALUES (Id_solicitud,Cantidad,Id_usua,Id_espa);
+END$$
+
+DELIMITER ;

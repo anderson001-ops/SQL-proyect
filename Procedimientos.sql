@@ -19,6 +19,7 @@ END$$
 
 DELIMITER ;
 
+#Solicitudes
 USE `proyecto`;
 DROP procedure IF EXISTS `Solicitudes`;
 
@@ -32,6 +33,26 @@ CREATE PROCEDURE `Solicitudes` (
 BEGIN
 	INSERT INTO Solicitudes (Cantidad,Id_usua,Id_espa)
 	VALUES (Id_solicitud,Cantidad,Id_usua,Id_espa);
+END$$
+
+DELIMITER ;
+
+#Elemento
+USE `proyecto`;
+DROP procedure IF EXISTS `Elemento`;
+
+DELIMITER $$
+USE `proyecto`$$
+CREATE PROCEDURE `Elemento` (
+	IN Nom_element VARCHAR(30), 
+	IN Obser VARCHAR(150), 
+	IN Num_Serie INT(10), 
+	IN Id_acceso INT(5),
+	IN Id_catego INT(5)
+)
+BEGIN
+	INSERT INTO Elemento (Nom_element,Obser,Num_Serie,Id_acceso,Id_catego)
+	VALUES (Nom_element,Obser,Num_Serie,Id_acceso,Id_catego);
 END$$
 
 DELIMITER ;

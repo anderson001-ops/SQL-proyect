@@ -4,7 +4,8 @@ INSERT INTO Tip_document (Tipo_Doc) VALUES
 ('Pasaporte'),
 ('Cédula de Extranjería');
 # Inserción de Usuarios
-CALL Usuarios ("Anderson", "Capera", "joelcapera@gmail.com", "1034596125"); 
+CALL Usuarios ("Anderson", "Capera", "joelcapera@gmail.com","1034596125", "holaaa", "activo","2");
+SELECT * FROM Usuarios;
 #Inserción de accesorios
 INSERT INTO Accesorios (Cant, Nom_acce, Marca) VALUES
 (10, 'Cable internet', 'AmazonBasics'),
@@ -12,6 +13,7 @@ INSERT INTO Accesorios (Cant, Nom_acce, Marca) VALUES
 (8, 'Teclado', 'Microsoft'),
 (20, 'Monitor', 'Anker'),
 (12, 'Cable HDMI', 'Sony');
+SELECT*FROM Accesorios;
 #Inserción Roles
 INSERT INTO Roles (Nom_rol) VALUES
 ("Instructor"),
@@ -29,4 +31,11 @@ INSERT INTO Categoria (Categoria) VALUES
 ('Equipo de mesa'),
 ('Televisores');
 #insertar solicitudes
-CALL Solitudes (2,1,1);
+CALL Solicitudes (2,1,1);
+SELECT * FROM Solicitudes;
+#Insertar elemento
+CALL Elemento ("Teclado", "Todas las teclas funcionan bien", "178935748921","1","2");
+SELECT * FROM Elemento;
+
+
+

@@ -1,9 +1,9 @@
 USE `proyecto`;
-DROP procedure IF EXISTS `Usuario`;
+DROP procedure IF EXISTS `Usuarios`;
 
 DELIMITER $$
 USE `proyecto`$$
-CREATE PROCEDURE `Usuario` (
+CREATE PROCEDURE `Usuarios` (
 	IN Nom_Usu VARCHAR(50), 
 	IN Ape_Usu VARCHAR(50), 
 	IN Correo VARCHAR(100), 
@@ -14,7 +14,7 @@ CREATE PROCEDURE `Usuario` (
 )
 BEGIN
 	INSERT INTO Usuarios (Nom_Usu,Ape_Usu,Correo,Num_Doc,Pasword,Estado,Id_document)
-	VALUES (Id_usuario,Nom_Usu,Ape_Usu,Correo,Num_Doc,Pasword,Estado,Id_document);
+	VALUES (Nom_Usu,Ape_Usu,Correo,Num_Doc,Pasword,Estado,Id_document);
 END$$
 
 DELIMITER ;
@@ -32,7 +32,7 @@ CREATE PROCEDURE `Solicitudes` (
 )
 BEGIN
 	INSERT INTO Solicitudes (Cantidad,Id_usua,Id_espa)
-	VALUES (Id_solicitud,Cantidad,Id_usua,Id_espa);
+	VALUES (Cantidad,Id_usua,Id_espa);
 END$$
 
 DELIMITER ;
@@ -46,8 +46,8 @@ USE `proyecto`$$
 CREATE PROCEDURE `Elemento` (
 	IN Nom_element VARCHAR(30), 
 	IN Obser VARCHAR(150), 
-	IN Num_Serie INT(10), 
-	IN Id_acceso INT(5),
+	IN Num_Serie INT(15),
+    IN Id_acceso INT(5),
 	IN Id_catego INT(5)
 )
 BEGIN

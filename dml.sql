@@ -36,6 +36,8 @@ SELECT * FROM Solicitudes;
 #Insertar elemento
 CALL Elemento ("Teclado", "Todas las teclas funcionan bien", "178935748921","1","2");
 SELECT * FROM Elemento;
-
+#insertar ticket
+CALL Ticket ('2025-06-04',1,1);
+SELECT*FROM Tickets
 
 

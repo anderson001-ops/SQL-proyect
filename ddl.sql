@@ -28,9 +28,8 @@ CREATE TABLE Prestamos(
 
 CREATE TABLE Tickets(
 	Id_ticket INT(5) PRIMARY KEY AUTO_INCREMENT,
-	Id_Equi INT(10),
 	Fecha_Repor DATE,
-	Estado VARCHAR (20),
+	Estado INT (10),
     Id_usu INT(5)
 );
 
@@ -87,7 +86,8 @@ Id_categoria INT (5) PRIMARY KEY AUTO_INCREMENT,
 Categoria VARCHAR(30)
 );
 CREATE TABLE Estado_ticket(
-Nom_estado VARCHAR (20) PRIMARY KEY ,
+Id_estado INT(10)PRIMARY KEY AUTO_INCREMENT,
+Nom_estado VARCHAR (20),
 Historial VARCHAR(255),
 Id_cat INT(5)
 );
@@ -100,14 +100,13 @@ ALTER TABLE Prestamos
 ADD CONSTRAINT Id_User
 FOREIGN KEY (Id_User) REFERENCES Usuarios(Id_usuario);
 
-
-ALTER TABLE Tickets
-ADD CONSTRAINT Estado
-FOREIGN KEY (Estado) REFERENCES Estado_ticket(Nom_estado);
-
 ALTER TABLE Tickets
 ADD CONSTRAINT Id_usu
 FOREIGN KEY (Id_usu) REFERENCES Usuarios(Id_usuario);
+
+ALTER TABLE Tickets
+ADD CONSTRAINT Fk_Estado
+FOREIGN KEY (Estado) REFERENCES Estado_ticket(Id_estado);
 
 ALTER TABLE Estado_ticket
 ADD CONSTRAINT Id_cat

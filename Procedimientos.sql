@@ -56,3 +56,22 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+#tickets
+USE `proyecto`;
+DROP procedure IF EXISTS `Tickets`;
+
+DELIMITER $$
+USE `proyecto`$$
+CREATE PROCEDURE `Tickets` (
+	IN Fecha_Repor DATE,
+	IN Estado VARCHAR (20),
+	IN Id_usu INT(5)
+)
+BEGIN
+	INSERT INTO Tickets (Fecha_Repor,Estado,Id_usu)
+	VALUES (Fecha_Repor,Estado,Id_usu);
+END$$
+
+DELIMITER ;
+

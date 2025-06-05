@@ -4,7 +4,7 @@ INSERT INTO Tip_document (Tipo_Doc) VALUES
 ('Pasaporte'),
 ('Cédula de Extranjería');
 # Inserción de Usuarios
-CALL Usuarios ("Anderson", "Capera", "joelcapera@gmail.com","1034596125", "holaaa", "activo","2");
+CALL Usuarios ("Anderson", "Capera", "joelcapera@gmail.com","1074596125", "holaaa", "activo","2");
 SELECT * FROM Usuarios;
 #Inserción de accesorios
 INSERT INTO Accesorios (Cant, Nom_acce, Marca) VALUES
@@ -37,7 +37,7 @@ SELECT * FROM Solicitudes;
 CALL Elemento ("Teclado", "Todas las teclas funcionan bien", "178935748921","1","2");
 SELECT * FROM Elemento;
 #insertar ticket
-CALL Ticket ('2025-06-04',1,1);
+CALL Tickets ('2025-06-04',1,1);
 SELECT*FROM Tickets
 
 

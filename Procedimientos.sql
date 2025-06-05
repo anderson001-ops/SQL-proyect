@@ -1,9 +1,9 @@
 USE `proyecto`;
-DROP procedure IF EXISTS `Usuario`;
+DROP procedure IF EXISTS `Usuarios`;
 
 DELIMITER $$
 USE `proyecto`$$
-CREATE PROCEDURE `Usuario` (
+CREATE PROCEDURE `Usuarios` (
 	IN Nom_Usu VARCHAR(50), 
 	IN Ape_Usu VARCHAR(50), 
 	IN Correo VARCHAR(100), 
@@ -14,7 +14,67 @@ CREATE PROCEDURE `Usuario` (
 )
 BEGIN
 	INSERT INTO Usuarios (Nom_Usu,Ape_Usu,Correo,Num_Doc,Pasword,Estado,Id_document)
-	VALUES (Id_usuario,Nom_Usu,Ape_Usu,Correo,Num_Doc,Pasword,Estado,Id_document);
+	VALUES (Nom_Usu,Ape_Usu,Correo,Num_Doc,Pasword,Estado,Id_document);
 END$$
 
 DELIMITER ;
+<<<<<<< HEAD
+=======
+
+#Solicitudes
+USE `proyecto`;
+DROP procedure IF EXISTS `Solicitudes`;
+
+DELIMITER $$
+USE `proyecto`$$
+CREATE PROCEDURE `Solicitudes` (
+	IN Cantidad INT(5),
+	IN Id_usua INT(5),
+    IN Id_espa INT(5)
+)
+BEGIN
+	INSERT INTO Solicitudes (Cantidad,Id_usua,Id_espa)
+	VALUES (Cantidad,Id_usua,Id_espa);
+END$$
+
+DELIMITER ;
+
+#Elemento
+USE `proyecto`;
+DROP procedure IF EXISTS `Elemento`;
+
+DELIMITER $$
+USE `proyecto`$$
+CREATE PROCEDURE `Elemento` (
+	IN Nom_element VARCHAR(30), 
+	IN Obser VARCHAR(150), 
+	IN Num_Serie INT(15),
+    IN Id_acceso INT(5),
+	IN Id_catego INT(5)
+)
+BEGIN
+	INSERT INTO Elemento (Nom_element,Obser,Num_Serie,Id_acceso,Id_catego)
+	VALUES (Nom_element,Obser,Num_Serie,Id_acceso,Id_catego);
+END$$
+
+DELIMITER ;
+
+#tickets
+USE `proyecto`;
+DROP procedure IF EXISTS `Tickets`;
+
+DELIMITER $$
+USE `proyecto`$$
+CREATE PROCEDURE `Tickets` (
+	IN Fecha_Repor DATE,
+	IN Estado VARCHAR (20),
+	IN Id_usu INT(5)
+)
+BEGIN
+	INSERT INTO Tickets (Fecha_Repor,Estado,Id_usu)
+	VALUES (Fecha_Repor,Estado,Id_usu);
+END$$
+
+DELIMITER ;
+
+>>>>>>> b20d72ff4c871038b1350939484c304b5b265036

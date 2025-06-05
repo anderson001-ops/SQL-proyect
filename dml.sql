@@ -4,13 +4,8 @@ INSERT INTO Tip_document (Tipo_Doc) VALUES
 ('Pasaporte'),
 ('Cédula de Extranjería');
 # Inserción de Usuarios
-CALL Usuarios ("Anderson", "Capera", "joelcapera@gmail.com", "1034596125"); 
-# Inserción de prestamos
-INSERT INTO Prestamos (Fecha_entre, Fecha_recep, Tipo_prest, Espa_public, Id_user) VALUES
-('2025-05-20 10:00:00', '2025-05-20 12:00:00', ' Cancha Deportivoa', 'cancha', "1" ),
-('2025-05-21 14:30:00', '2025-05-21 17:00:00', 'Auditorio', 'auditorio', "2"),
-('2025-05-22 09:00:00', '2025-05-22 11:00:00', 'Auditoio', 'auditorio', "3"),
-('2025-05-23 11:00:00', '2025-05-23 13:00:00', ' Cancha Deportiva', 'cancha', "4");
+CALL Usuarios ("Anderson", "Capera", "joelcapera@gmail.com","1074596125", "holaaa", "activo","2");
+SELECT * FROM Usuarios;
 #Inserción de accesorios
 INSERT INTO Accesorios (Cant, Nom_acce, Marca) VALUES
 (10, 'Cable internet', 'AmazonBasics'),
@@ -18,13 +13,7 @@ INSERT INTO Accesorios (Cant, Nom_acce, Marca) VALUES
 (8, 'Teclado', 'Microsoft'),
 (20, 'Monitor', 'Anker'),
 (12, 'Cable HDMI', 'Sony');
-#Inserción de tickets
-INSERT INTO Tickets (Id_Equi, Fecha_Repor) VALUES
-(201, '2025-05-20'),
-(202, '2025-05-21'),
-(203, '2025-05-22'),
-(204, '2025-05-23'),
-(205, '2025-05-24');
+SELECT*FROM Accesorios;
 #Inserción Roles
 INSERT INTO Roles (Nom_rol) VALUES
 ("Instructor"),
@@ -36,3 +25,19 @@ INSERT INTO Espacio_publico (Nom_Espa, Tiem_Uso, Hora_Soli, Num_Ficha) VALUES
 ('Cancha de Baloncesto', '01:30:00', '14:00:00', 1475002),
 ('Sala de Conferencias 1', '03:00:00', '10:30:00', 1003963),
 ('Salón de Usos Múltiples', '04:00:00', '08:00:00', 1022804);
+#insercion categoria
+INSERT INTO Categoria (Categoria) VALUES
+('Portátiles'),
+('Equipo de mesa'),
+('Televisores');
+#insertar solicitudes
+CALL Solicitudes (2,1,1);
+SELECT * FROM Solicitudes;
+#Insertar elemento
+CALL Elemento ("Teclado", "Todas las teclas funcionan bien", "178935748921","1","2");
+SELECT * FROM Elemento;
+#insertar ticket
+CALL Tickets ('2025-06-04',1,1);
+SELECT*FROM Tickets
+
+

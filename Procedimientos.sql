@@ -1,23 +1,25 @@
 USE `proyecto`;
-DROP procedure IF EXISTS `Usuarios`;
+DROP procedure IF EXISTS `proyecto`.`Usuarios`;
+;
 
 DELIMITER $$
 USE `proyecto`$$
-CREATE PROCEDURE `Usuarios` (
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Usuarios`(
 	IN Nom_Usu VARCHAR(50), 
 	IN Ape_Usu VARCHAR(50), 
 	IN Correo VARCHAR(100), 
 	IN Num_Doc INT(15), 
-	IN Pasword VARCHAR(30), 
-	IN Id_est INT(5), 
+	IN Pasword VARCHAR(500),
+	IN Estado VARCHAR(15),
 	IN Id_document INT(5)
 )
 BEGIN
-	INSERT INTO Usuarios (Nom_Usu,Ape_Usu,Correo,Num_Doc,Pasword,Id_est,Id_document)
-	VALUES (Nom_Usu,Ape_Usu,Correo,Num_Doc,Pasword,Id_est,Id_document);
+	INSERT INTO Usuarios (Nom_Usu,Ape_Usu,Correo,Num_Doc,Pasword,Estado,Id_document)
+	VALUES (Nom_Usu,Ape_Usu,Correo,Num_Doc, AES_ENCRYPT(Pasword,"123"), Estado,Id_document);
 END$$
 
 DELIMITER ;
+
 
 #Solicitudes
 USE `proyecto`;

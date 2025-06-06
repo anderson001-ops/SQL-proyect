@@ -8,14 +8,11 @@ CREATE TABLE Usuarios(
 	Ape_Usu  VARCHAR(50),
 	Correo  VARCHAR(100),
 	Num_Doc  INT(15) UNIQUE,
-	Pasword  VARCHAR(30),
-	Id_Est INT(5),
+	Pasword  VARCHAR(500),
+	Estado VARCHAR(15),
 	Id_document  INT(5)
 );
-CREATE TABLE Estados (
-	Id_estado INT (1) PRIMARY KEY AUTO_INCREMENT,
-	Estado VARCHAR (15)
-);
+
 CREATE TABLE Tip_document(
 	Id_documento  INT(5) PRIMARY KEY AUTO_INCREMENT,
     Tipo_Doc VARCHAR(30)
@@ -110,10 +107,6 @@ Obser_ticket VARCHAR(255)
 ALTER TABLE Usuarios
 ADD CONSTRAINT Id_document
 FOREIGN KEY (Id_document) REFERENCES Tip_document(Id_documento);
-
-ALTER TABLE Usuarios
-ADD CONSTRAINT Fk_estado
-FOREIGN KEY (Id_est) REFERENCES Estados(Id_estado);
 
 ALTER TABLE Prestamos
 ADD CONSTRAINT Id_User

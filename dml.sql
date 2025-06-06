@@ -3,18 +3,14 @@ INSERT INTO Tip_document (Tipo_Doc) VALUES
 ('Cédula de Ciudadanía'),
 ('Pasaporte'),
 ('Cédula de Extranjería');
-#Inserción de los tipos de estado
-INSERT INTO estados (Estado) VALUES 
-("Activo"),
-("Inactivo"),
-("Suspendido");
 # Inserción de Usuarios
-CALL Usuarios ("Anderson", "Capera", "joelcapera@gmail.com","1078596125", "com25la", "1","2");
-CALL Usuarios ("Alejandro", "Bernal", "alejandrobernal@gmail.com","1023659874", "salcipapa123", "2","1");
-CALL Usuarios ("Mateo", "Suarez", "mateosuarez@gmail.com","1035872642", "Jr10pas", "1","3");
-CALL Usuarios ("Carlos", "Camacho", "carloscam@gmail.com","1032163105", "c4r10s301", "3","1");
-CALL Usuarios ("Nicolas", "Niño", "nicolasn@gmail.com","1013465910", "12c#;i1", "1","2");
+CALL Usuarios ("Anderson", "Capera", "joelcapera@gmail.com","1078596125", "com25la","Activo", "2");
+CALL Usuarios ("Alejandro", "Bernal", "alejandrobernal@gmail.com","1023659874", "salcipapa123","Activo","1");
+CALL Usuarios ("Mateo", "Suarez", "mateosuarez@gmail.com","1035872642", "Jr10pas","Activo","3");
+CALL Usuarios ("Carlos", "Camacho", "carloscam@gmail.com","1032163105", "c4r10s301","Activo","1");
+CALL Usuarios ("Nicolas PP", "Niño", "nicolasn@gmail.com","1013465955", "12c#;i1","Activo","2");
 SELECT * FROM Usuarios;
+
 #Inserción de accesorios
 INSERT INTO Accesorios (Cant, Nom_acce, Marca) VALUES
 (10, 'Cable internet', 'AmazonBasics'),
@@ -49,11 +45,11 @@ SELECT * FROM Elemento;
 #CALL Tickets ('2025-06-04',1,1);
 #SELECT*FROM Tickets;
 #Prestamos
-CALL Prestamos (1,"2025-06-05 12:30:00 ","2025-06-05 06:00:00","Portatil","Auditorio");
+CALL Prestamos (1,"2025-06-05 12:30:00 ","2025-06-05 06:00:00","Portatil","Cancha");
 CALL Prestamos (2,"2025-06-10 1:30:00 ","2025-06-10 06:00:00","Equipos_de_mesa","Auditorio");
-CALL Prestamos (3,"2025-06-13 2:00:00 ","2025-06-13 06:00:00","Portatil","Auditorio");
+CALL Prestamos (3,"2025-06-13 2:00:00 ","2025-06-13 06:00:00","Portatil","Cancha");
 CALL Prestamos (4,"2025-06-25 10:20:00 ","2025-06-25 06:00:00","Portatil","Auditorio");
-CALL Prestamos (5,"2025-07-07 09:10:00 ","2025-07-07 06:00:00","Portatil","Auditorio");
+CALL Prestamos (5,"2025-07-07 09:10:00 ","2025-07-07 06:00:00","Portatil","Cancha");
 SELECT*FROM Prestamos;
 
 #CALL Tickets_elemento (1,2,"El equipo de escritoria revisado presentaba fallas en la licencia de office");

@@ -9,8 +9,12 @@ CREATE TABLE Usuarios(
 	Correo  VARCHAR(100),
 	Num_Doc  INT(15) UNIQUE,
 	Pasword  VARCHAR(30),
-	Estado  VARCHAR(10),
+	Id_Est INT(5),
 	Id_document  INT(5)
+);
+CREATE TABLE Estados (
+	Id_estado INT (1) PRIMARY KEY AUTO_INCREMENT,
+	Estado VARCHAR (15)
 );
 CREATE TABLE Tip_document(
 	Id_documento  INT(5) PRIMARY KEY AUTO_INCREMENT,
@@ -74,6 +78,12 @@ CREATE TABLE Elemento(
 	Id_catego INT(5)
 );
 
+CREATE TABLE Prestamos_Elemento(
+	Id_prestamo INT(5),
+	Id_elemento INT(5),
+PRIMARY KEY (Id_prestamo,Id_elemento)
+);
+
 CREATE TABLE Accesorios(
 Id_accesorios INT(5) PRIMARY KEY AUTO_INCREMENT,
 Cant INT(2),
@@ -91,10 +101,19 @@ Nom_estado VARCHAR (20),
 Historial VARCHAR(255),
 Id_cat INT(5)
 );
+CREATE TABLE Tickets_Elemento(
+Id_ticket INT(5),
+Id_elemento INT(5),
+Obser_ticket VARCHAR(255)
+);
 
 ALTER TABLE Usuarios
 ADD CONSTRAINT Id_document
 FOREIGN KEY (Id_document) REFERENCES Tip_document(Id_documento);
+
+ALTER TABLE Usuarios
+ADD CONSTRAINT Fk_estado
+FOREIGN KEY (Id_est) REFERENCES Estados(Id_estado);
 
 ALTER TABLE Prestamos
 ADD CONSTRAINT Id_User
@@ -105,13 +124,12 @@ ADD CONSTRAINT Id_usu
 FOREIGN KEY (Id_usu) REFERENCES Usuarios(Id_usuario);
 
 ALTER TABLE Tickets
-ADD CONSTRAINT Fk_Estado
+ADD CONSTRAINT Fk_Estad
 FOREIGN KEY (Estado) REFERENCES Estado_ticket(Id_estado);
 
 ALTER TABLE Estado_ticket
 ADD CONSTRAINT Id_cat
 FOREIGN KEY (Id_cat) REFERENCES Categoria(Id_categoria);
-
 
 ALTER TABLE Elemento
 ADD CONSTRAINT Id_catego
@@ -145,4 +163,19 @@ ALTER TABLE Roles_Usuarios
 ADD CONSTRAINT Id_Usuario
 FOREIGN KEY (Id_Usuario) REFERENCES Usuarios(Id_usuario);
 
+ALTER TABLE Tickets_Elemento
+ADD CONSTRAINT Fk_Ticketss
+FOREIGN KEY (Id_ticket) REFERENCES Tickets(Id_ticket);
+
+ALTER TABLE Tickets_Elemento
+ADD CONSTRAINT Fk_Tickets_element
+FOREIGN KEY (Id_elemento) REFERENCES Elemento(Id_elemento);
+
+ALTER TABLE Prestamos_Elemento
+ADD CONSTRAINT FK_Prest_
+FOREIGN KEY (Id_prestamo) REFERENCES Prestamos(Id_prestamo);
+
+ALTER TABLE Prestamos_Elemento
+ADD CONSTRAINT Fk_eleme
+FOREIGN KEY (Id_elemento) REFERENCES Elemento(Id_elemento);
 

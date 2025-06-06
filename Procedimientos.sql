@@ -9,17 +9,15 @@ CREATE PROCEDURE `Usuarios` (
 	IN Correo VARCHAR(100), 
 	IN Num_Doc INT(15), 
 	IN Pasword VARCHAR(30), 
-	IN Estado VARCHAR(10), 
+	IN Id_est INT(5), 
 	IN Id_document INT(5)
 )
 BEGIN
-	INSERT INTO Usuarios (Nom_Usu,Ape_Usu,Correo,Num_Doc,Pasword,Estado,Id_document)
-	VALUES (Nom_Usu,Ape_Usu,Correo,Num_Doc,Pasword,Estado,Id_document);
+	INSERT INTO Usuarios (Nom_Usu,Ape_Usu,Correo,Num_Doc,Pasword,Id_est,Id_document)
+	VALUES (Nom_Usu,Ape_Usu,Correo,Num_Doc,Pasword,Id_est,Id_document);
 END$$
 
 DELIMITER ;
-<<<<<<< HEAD
-=======
 
 #Solicitudes
 USE `proyecto`;
@@ -77,4 +75,40 @@ END$$
 
 DELIMITER ;
 
->>>>>>> b20d72ff4c871038b1350939484c304b5b265036
+#Prestamos
+USE `Proyecto`;
+DROP PROCEDURE IF EXISTS `Prestamos`;
+
+DELIMITER $$
+CREATE PROCEDURE `Prestamos` (
+    IN Id_user INT(5),
+    IN Fecha_entre TIMESTAMP,
+    IN Fecha_recep TIMESTAMP,
+    IN Tipo_prest VARCHAR(30),
+    IN Espa_public VARCHAR(30)
+)
+BEGIN
+    INSERT INTO Prestamos (Id_user,Fecha_entre,Fecha_recep,Tipo_prest,Espa_public)
+    VALUES (Id_user,Fecha_entre,Fecha_recep,Tipo_prest,Espa_public);
+END$$
+DELIMITER ;
+
+#Prestamos
+USE `Proyecto`;
+DROP PROCEDURE IF EXISTS `Tickets_elemento`;
+
+DELIMITER $$
+CREATE PROCEDURE `Tickets_elemento` (
+	IN Id_ticket INT(5), 
+	IN Id_elemento INT(5), 
+	IN Obser_ticket VARCHAR(255)
+)
+BEGIN
+    INSERT INTO Tickets_elemento (Id_ticket,Id_elemento,Obser_ticket)
+    VALUES (Id_ticket,Id_elemento,Obser_ticket);
+END$$
+DELIMITER ;
+
+
+
+

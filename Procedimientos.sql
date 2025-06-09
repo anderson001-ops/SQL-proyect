@@ -111,6 +111,25 @@ BEGIN
 END$$
 DELIMITER ;
 
+USE `proyecto`;
+DROP procedure IF EXISTS `Estado_ticket`;
+
+DELIMITER $$
+USE `proyecto`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Estado_ticket` (
+IN Id_cat INTEGER(5),
+IN Historial VARCHAR(255),
+IN Nom_estado VARCHAR(15)
+)
+BEGIN
+ INSERT INTO Estado_ticket(Id_cat,Historial,Nom_estado)
+ VALUES (Id_cat,Historial,Nom_estado);
+END$$
+
+DELIMITER ;
+
+
+
 
 
 

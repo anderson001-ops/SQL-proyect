@@ -127,9 +127,3 @@ BEGIN
 END$$
 
 DELIMITER ;
-
-
-
-
-
-

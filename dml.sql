@@ -41,6 +41,9 @@ SELECT * FROM Solicitudes;
 #Insertar elemento
 CALL Elemento ("Teclado", "Todas las teclas funcionan bien", "178935748921","1","2");
 SELECT * FROM Elemento;
+#estado ticket 
+CALL Estado_ticket (1,"Cambio de bateria y actualizacion de sistema operativo","inactivo");
+SELECT*FROM Estado_ticket;
 #insertar ticket
 CALL Tickets ('2025-06-04',1,1);
 SELECT*FROM Tickets;
@@ -51,11 +54,8 @@ CALL Prestamos (3,"2025-06-13 2:00:00 ","2025-06-13 06:00:00","Portatil","Cancha
 CALL Prestamos (4,"2025-06-25 10:20:00 ","2025-06-25 06:00:00","Portatil","Auditorio");
 CALL Prestamos (5,"2025-07-07 09:10:00 ","2025-07-07 06:00:00","Portatil","Cancha");
 SELECT*FROM Prestamos;
-
-CALL Tickets_elemento (1,2,"El equipo de escritoria revisado presentaba fallas en la licencia de office");
-SELECT*FROM Prestamos;
-
+CALL Tickets_elemento (1,1,"El equipo de escritoria revisado presentaba fallas en la licencia de office");
+SELECT*FROM Tickets_elemento;
 #estado ticket 
-
 CALL Estado_ticket (1,"Cambio de bateria y actualizacion de sistema operativo","inactivo");
 SELECT*FROM Estado_ticket;

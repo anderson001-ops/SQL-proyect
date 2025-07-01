@@ -1,6 +1,6 @@
 # Inserción tipos de documento
 INSERT INTO Tip_document (Tipo_Doc) VALUES
-('Cédula de Ciudadanía')  ,
+('Cédula de Ciudadanía') ,
 ('Pasaporte'),
 ('Cédula de Extranjería');
 # Inserción de Usuarios

@@ -1,6 +1,6 @@
 # Inserción tipos de documento
 INSERT INTO Tip_document (Tipo_Doc) VALUES
-('Cédula de Ciudadanía'),
+('Cédula de Ciudadanía') ,
 ('Pasaporte'),
 ('Cédula de Extranjería');
 # Inserción de Usuarios
@@ -26,7 +26,7 @@ INSERT INTO Roles (Nom_rol) VALUES
 ("Tecnico");
 #Inserción Espacio_publico
 INSERT INTO Espacio_publico (Nom_Espa, Tiem_Uso, Hora_Soli, Num_Ficha) VALUES
-('Auditorio Principal', '02:00:00', '09:00:00', 1001157),
+('Auditorio ', '02:00:00', '09:00:00', 1001157),
 ('Cancha de Baloncesto', '01:30:00', '14:00:00', 1475002),
 ('Sala de Conferencias 1', '03:00:00', '10:30:00', 1003963),
 ('Salón de Usos Múltiples', '04:00:00', '08:00:00', 1022804);
@@ -48,7 +48,7 @@ SELECT*FROM Estado_ticket;
 CALL Tickets ('2025-06-04',1,1);
 SELECT*FROM Tickets;
 #Prestamos
-CALL Prestamos (1,"2025-06-05 12:30:00 ","2025-06-05 06:00:00","Portatil","Cancha");
+CALL Prestamos (1,"2025-06-05 06:00:00  ","2025-06-05 12:30:00","Portatil","Cancha");
 CALL Prestamos (2,"2025-06-10 1:30:00 ","2025-06-10 06:00:00","Equipos_de_mesa","Auditorio");
 CALL Prestamos (3,"2025-06-13 2:00:00 ","2025-06-13 06:00:00","Portatil","Cancha");
 CALL Prestamos (4,"2025-06-25 10:20:00 ","2025-06-25 06:00:00","Portatil","Auditorio");

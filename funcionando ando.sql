@@ -12,7 +12,7 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `verificar_disponibilidad_elementos`(
     fecha_fin DATETIME
 ) RETURNS varchar(20) CHARSET utf8mb4 COLLATE utf8mb4_general_ci
 BEGIN
-DECLARE ocupado INT ;
+DECLARE ocupado INT;
 
         SELECT COUNT(*)
     INTO ocupado

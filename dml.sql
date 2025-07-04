@@ -81,3 +81,10 @@ INSERT INTO Usuarios (Nom_Usu, Ape_Usu, Correo, Num_Doc, Pasword, Estado, Id_doc
 VALUES ('Pedro', 'Gomez', 'pedro@example.com', 1078596125, 'password123', 'Activo', 1);
 INSERT INTO Usuarios (Nom_Usu, Ape_Usu, Correo, Num_Doc, Pasword, Estado, Id_document) 
 VALUES ('Maria', 'Lopez', 'joelcapera@gmail.com', 987654321, 'password456', 'Activo', 1);
+# verficar espacio disponible 
+# miramos espacios 
+SELECT * FROM Espacio_publico;
+# insertamos espacio ya ocupao
+INSERT INTO Solicitudes (Cantidad, Id_usua, Id_espa)
+VALUES (5, 1, 1);
+

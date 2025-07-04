@@ -65,17 +65,6 @@ INSERT INTO Usuarios (Nom_Usu, Ape_Usu, Correo, Num_Doc, Pasword, Estado, Id_doc
 VALUES ('Jhon', 'jairo', 'jhonjairito@gmail.com', 123456789, 'jhonjairito123', 'Activo', 1);
 #ver que sirve 
 SELECT Id_usuario, Nom_Usu, Pasword FROM Usuarios WHERE Num_Doc = 123456789;
-#elementos 
-INSERT INTO Elemento (Nom_element, Obser, Num_Serie, Id_acceso, Id_catego)
-VALUES ('Monitor', 'Nuevo', 12345, 4, 2);
-# actualizar elemento
-SET SQL_SAFE_UPDATES = 0;
-UPDATE Elemento 
-SET Nom_element = 'Monitor LED', Obser = 'Nuevo, 24 pulgadas' 
-WHERE Id_elemento =5;
-SET SQL_SAFE_UPDATES = 1;
-#historial 
-SELECT * FROM Elemento;
 #repetidos documentos y correos 
 INSERT INTO Usuarios (Nom_Usu, Ape_Usu, Correo, Num_Doc, Pasword, Estado, Id_document) 
 VALUES ('Pedro', 'Gomez', 'pedro@example.com', 1078596125, 'password123', 'Activo', 1);
@@ -88,3 +77,15 @@ SELECT * FROM Espacio_publico;
 INSERT INTO Solicitudes (Cantidad, Id_usua, Id_espa)
 VALUES (5, 1, 1);
 
+
+/*#elementos 
+INSERT INTO Elemento (Nom_element, Obser, Num_Serie, Id_acceso, Id_catego)
+VALUES ('Monitor', 'Nuevo', 12345, 4, 2);
+# actualizar elemento
+SET SQL_SAFE_UPDATES = 0;
+UPDATE Elemento 
+SET Nom_element = 'Monitor LED', Obser = 'Nuevo, 24 pulgadas' 
+WHERE Id_elemento =5;
+SET SQL_SAFE_UPDATES = 1;
+#historial 
+SELECT * FROM Elemento;*/

@@ -11,6 +11,12 @@ CALL Usuarios ("Carlos", "Camacho", "carloscam@gmail.com","1032163105", "c4r10s3
 CALL Usuarios ("Nicolas PP", "Niño", "nicolasn@gmail.com","1013465955", "12c#;i1","Activo","2");
 SELECT * FROM Usuarios;
 
+CREATE VIEW Usua AS
+SELECT Id_usuario , Nom_Usu  , Ape_Usu , Correo, Num_Doc, Pasword, Estado, Id_document       
+FROM Usuarios
+WHERE Id_document = 2 ;
+SELECT * FROM Usua;
+
 #Inserción de accesorios
 INSERT INTO Accesorios (Cant, Nom_acce, Marca) VALUES
 (10, 'Cable internet', 'AmazonBasics'),
@@ -54,6 +60,13 @@ CALL Prestamos (3,"2025-06-13 2:00:00 ","2025-06-13 06:00:00","Portatil","Cancha
 CALL Prestamos (4,"2025-06-25 10:20:00 ","2025-06-25 06:00:00","Portatil","Auditorio");
 CALL Prestamos (5,"2025-07-07 09:10:00 ","2025-07-07 06:00:00","Portatil","Cancha");
 SELECT*FROM Prestamos;
+
+CREATE VIEW Prestt AS
+SELECT Id_prestamo , Fecha_entre , Fecha_recep , Tipo_prest , Espa_public , Id_User    
+FROM Prestamos
+WHERE Tipo_prest = "Portatil"; 
+SELECT * FROM Prestt ;
+
 CALL Tickets_elemento (1,1,"El equipo de escritoria revisado presentaba fallas en la licencia de office");
 SELECT*FROM Tickets_elemento;
 #estado ticket 

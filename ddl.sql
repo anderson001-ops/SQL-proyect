@@ -29,14 +29,22 @@ CREATE TABLE Prestamos(
 
 CREATE TABLE Tickets(
 	Id_ticket INT(5) PRIMARY KEY AUTO_INCREMENT,
-	Fecha_Repor DATE,
-	Estado INT (10),
+	Fecha_ini DATE ,
+    Fecha_finn DATE ,
+    Ambiente VARCHAR (25),
+	Revision_tick INT(10),
+    Estado INT (10),
     Id_usu INT(5)
 );
 
 CREATE TABLE Solicitudes(
 	Id_solicitud INT (5) PRIMARY KEY AUTO_INCREMENT,
 	Cantidad INT (5),
+    Observacion VARCHAR(25),
+    Fecha_inicio DATE,
+    Fecha_fin DATE,
+    Estad0 VARCHAR (25),
+    Ambiente VARCHAR(25),
 	Id_usua INT (5),
 	Id_espa INT (5)
 );
@@ -70,7 +78,6 @@ CREATE TABLE Elemento(
 	Id_elemento INT(5) PRIMARY KEY AUTO_INCREMENT,
 	Nom_element VARCHAR(30),
 	Obser VARCHAR(150),
-	Num_Serie INT(10),
 	Id_acceso INT(5),
 	Id_catego INT(5)
 );
@@ -85,19 +92,22 @@ CREATE TABLE Accesorios(
 Id_accesorios INT(5) PRIMARY KEY AUTO_INCREMENT,
 Cant INT(2),
 Nom_acce VARCHAR(30),
-Marca VARCHAR (20)
+Marca VARCHAR (20),
+Num_serie VARCHAR (15)
 );
 
 CREATE TABLE Categoria(
 Id_categoria INT (5) PRIMARY KEY AUTO_INCREMENT,
 Categoria VARCHAR(30)
 );
+
 CREATE TABLE Estado_ticket(
 Id_estado INT(10)PRIMARY KEY AUTO_INCREMENT,
 Nom_estado VARCHAR (20),
 Historial VARCHAR(255),
 Id_cat INT(5)
 );
+
 CREATE TABLE Tickets_Elemento(
 Id_ticket INT(5),
 Id_elemento INT(5),
@@ -137,8 +147,8 @@ ADD CONSTRAINT Id_usua
 FOREIGN KEY (Id_usua) REFERENCES Usuarios(Id_usuario);
  
 ALTER TABLE Solicitudes
-ADD CONSTRAINT Id_espa
-FOREIGN KEY (Id_espa) REFERENCES Usuarios(Id_usuario);
+ADD CONSTRAINT FK_EspacioSolicitudes
+FOREIGN KEY (Id_espa) REFERENCES Espacio_publico(Id_espacio);
 
 ALTER TABLE Elemento_Solicitudes
 ADD CONSTRAINT Id_elemento

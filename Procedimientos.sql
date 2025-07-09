@@ -30,11 +30,16 @@ USE `proyecto`$$
 CREATE PROCEDURE `Solicitudes` (
 	IN Cantidad INT(5),
 	IN Id_usua INT(5),
-    IN Id_espa INT(5)
+    IN Id_espa INT(5),
+    IN Observacion VARCHAR(25), 
+	IN Fecha_inicio DATE, 
+	IN Fecha_fin DATE, 
+	IN Estad0 VARCHAR(25), 
+	IN Ambiente VARCHAR(25)
 )
 BEGIN
-	INSERT INTO Solicitudes (Cantidad,Id_usua,Id_espa)
-	VALUES (Cantidad,Id_usua,Id_espa);
+	INSERT INTO Solicitudes (Cantidad,Id_usua,Id_espa,Observacion,Fecha_inicio,Fecha_fin,Estad0,Ambiente)
+	VALUES (Cantidad,Id_usua,Id_espa,Observacion,Fecha_inicio,Fecha_fin,Estad0,Ambiente);
 END$$
 
 DELIMITER ;
@@ -48,13 +53,12 @@ USE `proyecto`$$
 CREATE PROCEDURE `Elemento` (
 	IN Nom_element VARCHAR(30), 
 	IN Obser VARCHAR(150), 
-	IN Num_Serie INT(15),
     IN Id_acceso INT(5),
 	IN Id_catego INT(5)
 )
 BEGIN
-	INSERT INTO Elemento (Nom_element,Obser,Num_Serie,Id_acceso,Id_catego)
-	VALUES (Nom_element,Obser,Num_Serie,Id_acceso,Id_catego);
+	INSERT INTO Elemento (Nom_element,Obser,Id_acceso,Id_catego)
+	VALUES (Nom_element,Obser,Id_acceso,Id_catego);
 END$$
 
 DELIMITER ;
@@ -66,13 +70,16 @@ DROP procedure IF EXISTS `Tickets`;
 DELIMITER $$
 USE `proyecto`$$
 CREATE PROCEDURE `Tickets` (
-	IN Fecha_Repor DATE,
-	IN Estado VARCHAR (20),
+	IN Fecha_ini DATE, 
+	IN	Fecha_finn DATE, 
+	IN	Ambiente VARCHAR(25),
+	IN	Revision_tick INT(10),
+	IN Estado INT (10),
 	IN Id_usu INT(5)
 )
 BEGIN
-	INSERT INTO Tickets (Fecha_Repor,Estado,Id_usu)
-	VALUES (Fecha_Repor,Estado,Id_usu);
+	INSERT INTO Tickets (Fecha_ini,Fecha_finn,Ambiente,Revision_tick,Estado,Id_usu)
+	VALUES (Fecha_ini,Fecha_finn,Ambiente,Revision_tick,Estado,Id_usu);
 END$$
 
 DELIMITER ;

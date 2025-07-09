@@ -17,13 +17,26 @@ FROM Usuarios
 WHERE Id_document = 2 ;
 SELECT * FROM Usua;
 
+
+SELECT
+    CONSTRAINT_NAME,
+    TABLE_NAME,
+    COLUMN_NAME,
+    REFERENCED_TABLE_NAME,
+    REFERENCED_COLUMN_NAME
+FROM
+    information_schema.KEY_COLUMN_USAGE
+WHERE
+    TABLE_SCHEMA = 'proyecto'
+    AND TABLE_NAME = 'Solicitudes';
+
 #Inserción de accesorios
-INSERT INTO Accesorios (Cant, Nom_acce, Marca) VALUES
-(10, 'Cable internet', 'AmazonBasics'),
-(15, 'Mouse', 'Logitech'),
-(8, 'Teclado', 'Microsoft'),
-(20, 'Monitor', 'Anker'),
-(12, 'Cable HDMI', 'Sony');
+INSERT INTO Accesorios (Cant, Nom_acce, Marca, Num_serie) VALUES
+(10, 'Cable internet', 'AmazonBasics','13A21'),
+(15, 'Mouse', 'Logitech','1AE'),
+(8, 'Teclado', 'Microsoft','13A21'),
+(20, 'Monitor', 'Anker','A213'),
+(12, 'Cable HDMI', 'Sony','TER32');
 SELECT*FROM Accesorios;
 #Inserción Roles
 INSERT INTO Roles (Nom_rol) VALUES
@@ -41,17 +54,23 @@ INSERT INTO Categoria (Categoria) VALUES
 ('Portátiles'),
 ('Equipo de mesa'),
 ('Televisores');
+
+SELECT * FROM Usuarios;
+
+
 #insertar solicitudes
-CALL Solicitudes (2,1,1);
+CALL Solicitudes (1, 2, 2, "Buen funcionamiento", '2025-07-09', '2025-08-09', "Activo", "003");
 SELECT * FROM Solicitudes;
+
 #Insertar elemento
-CALL Elemento ("Teclado", "Todas las teclas funcionan bien", "178935748921","1","2");
+CALL Elemento ("Teclado", "Todas las teclas funcionan bien","1","2");
 SELECT * FROM Elemento;
 #estado ticket 
 CALL Estado_ticket (1,"Cambio de bateria y actualizacion de sistema operativo","inactivo");
 SELECT*FROM Estado_ticket;
 #insertar ticket
-CALL Tickets ('2025-06-04',1,1);
+CALL Tickets('2025-07-01', '2025-07-09', 'Auditorio', 1, 1, 2);
+
 SELECT*FROM Tickets;
 #Prestamos
 CALL Prestamos (1,"2025-06-05 06:00:00  ","2025-06-05 12:30:00","Portatil","Cancha");

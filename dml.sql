@@ -71,6 +71,9 @@ SELECT*FROM Estado_ticket;
 #insertar ticket
 CALL Tickets('2025-07-01', '2025-07-09', 'Auditorio', 1, 1, 2);
 
+INSERT INTO Prestamos_Elemento (Id_prestamo, Id_elemento) VALUES (1, 1);
+
+
 SELECT*FROM Tickets;
 #Prestamos
 CALL Prestamos (1,"2025-06-05 06:00:00  ","2025-06-05 12:30:00","Portatil","Cancha");
@@ -108,4 +111,11 @@ SELECT * FROM Espacio_publico;
 # insertamos espacio ya ocupao
 INSERT INTO Solicitudes (Cantidad, Id_usua, Id_espa)
 VALUES (5, 1, 1);
+-- Asignamos el elemento 1 al préstamo 1 (ocupado del 2025-06-05 06:00 a 12:30)
+INSERT INTO Prestamos_Elemento (Id_prestamo, Id_elemento) VALUES (1, 1);
+SELECT verificar_disponibilidad_elementos(1, '2025-06-05 07:00:00', '2025-06-05 08:00:00') AS Disponibilidad;
+SELECT      e.Id_elemento,     e.Nom_element,     verificar_disponibilidad_elementos(e.Id_elemento, '2025-07-05 10:00:00', '2025-07-05 11:00:00') AS Disponibilidad FROM Elemento e;
+SELECT Verificar_disponibilidad_espacio(2, '2025-08-10 09:00:00', '2025-08-10 12:00:00') AS Disponibilidad;
+SELECT Verificar_disponibilidad_espacio(2, '2025-06-10 02:00:00', '2025-06-10 05:00:00') AS Disponibilidad;
+
 

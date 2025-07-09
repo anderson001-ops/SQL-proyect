@@ -60,23 +60,7 @@ SET MESSAGE_TEXT = 'El espacio ya está reservado en este horario';
 END IF;
 END //
 DELIMITER ;
-
-
-/*#cambios de historial en elemento
- DELIMITER //
- CREATE TRIGGER cambiosdeelemento
- AFTER UPDATE ON Elemento
- FOR EACH ROW
- BEGIN
- IF OLD.Nom_element !=NEW.Nom_element OR  OLD.Obser !=NEW.obser THEN
- INSERT INTO  historial_Elementos (Id_elemento,cambiar,fecha,Usuario)
- VALUES (NEW.Id_elemento,
- concat('nombre:',OLD.Nom_element,'-', NEW.Nom_element,
- 'observacion', OLD.obser,'-',NEW.Obser),
- NOW(),current_user());
- END IF;
- END //
- DELIMITER ;*/
+# si el elemento esta disponible 
  DELIMITER //
 
 CREATE TRIGGER verificar_elemento_disponible

@@ -15,7 +15,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Usuarios`(
 )
 BEGIN
 	INSERT INTO Usuarios (Nom_Usu,Ape_Usu,Correo,Num_Doc,Pasword,Estado,Id_document)
-	VALUES (Nom_Usu,Ape_Usu,Correo,Num_Doc, AES_ENCRYPT(Pasword,"123"), Estado,Id_document);
+	VALUES (Nom_Usu,Ape_Usu,Correo,Num_Doc,Pasword, Estado,Id_document);
 END$$
 
 DELIMITER ;

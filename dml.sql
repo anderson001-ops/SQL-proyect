@@ -109,15 +109,3 @@ SELECT * FROM Espacio_publico;
 INSERT INTO Solicitudes (Cantidad, Id_usua, Id_espa)
 VALUES (5, 1, 1);
 
-
-/*#elementos 
-INSERT INTO Elemento (Nom_element, Obser, Num_Serie, Id_acceso, Id_catego)
-VALUES ('Monitor', 'Nuevo', 12345, 4, 2);
-# actualizar elemento
-SET SQL_SAFE_UPDATES = 0;
-UPDATE Elemento 
-SET Nom_element = 'Monitor LED', Obser = 'Nuevo, 24 pulgadas' 
-WHERE Id_elemento =5;
-SET SQL_SAFE_UPDATES = 1;
-#historial 
-SELECT * FROM Elemento;*/

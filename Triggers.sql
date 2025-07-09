@@ -77,3 +77,34 @@ DELIMITER ;
  END IF;
  END //
  DELIMITER ;*/
+ DELIMITER //
+
+CREATE TRIGGER verificar_elemento_disponible
+BEFORE INSERT ON Prestamos_Elemento
+FOR EACH ROW
+BEGIN
+    DECLARE disponibilidad VARCHAR(20);
+    DECLARE fecha_inicio DATETIME;
+    DECLARE fecha_fin DATETIME;
+
+    -- Obtener fechas del préstamo asociado
+    SELECT Fecha_entre, Fecha_recep
+    INTO fecha_inicio, fecha_fin
+    FROM Prestamos
+    WHERE Id_prestamo = NEW.Id_prestamo;
+
+    -- Llamada a la función verificar_disponibilidad_elementos
+    SET disponibilidad = verificar_disponibilidad_elementos(
+        NEW.Id_elemento,
+        fecha_inicio,
+        fecha_fin
+    );
+
+    -- Si no está disponible, cancelar la inserción
+    IF disponibilidad = 'No disponible' THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'ERROR: El elemento no está disponible en el rango de fechas solicitado';
+    END IF;
+END //
+
+DELIMITER ;

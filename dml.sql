@@ -11,24 +11,13 @@ CALL Usuarios ("Carlos", "Camacho", "carloscam@gmail.com","1032163105", "c4r10s3
 CALL Usuarios ("Nicolas PP", "Niño", "nicolasn@gmail.com","1013465955", "12c#;i1","Activo","2");
 SELECT * FROM Usuarios;
 
+#Vita usuarios con id documento =2
 CREATE VIEW Usua AS
 SELECT Id_usuario , Nom_Usu  , Ape_Usu , Correo, Num_Doc, Pasword, Estado, Id_document       
 FROM Usuarios
 WHERE Id_document = 2 ;
 SELECT * FROM Usua;
 
-
-SELECT
-    CONSTRAINT_NAME,
-    TABLE_NAME,
-    COLUMN_NAME,
-    REFERENCED_TABLE_NAME,
-    REFERENCED_COLUMN_NAME
-FROM
-    information_schema.KEY_COLUMN_USAGE
-WHERE
-    TABLE_SCHEMA = 'proyecto'
-    AND TABLE_NAME = 'Solicitudes';
 
 #Inserción de accesorios
 INSERT INTO Accesorios (Cant, Nom_acce, Marca, Num_serie) VALUES
@@ -57,7 +46,6 @@ INSERT INTO Categoria (Categoria) VALUES
 
 SELECT * FROM Usuarios;
 
-
 #insertar solicitudes
 CALL Solicitudes (1, 2, 2, "Buen funcionamiento", '2025-07-09', '2025-08-09', "Activo", "003");
 SELECT * FROM Solicitudes;
@@ -83,6 +71,7 @@ CALL Prestamos (4,"2025-06-25 10:20:00 ","2025-06-25 06:00:00","Portatil","Audit
 CALL Prestamos (5,"2025-07-07 09:10:00 ","2025-07-07 06:00:00","Portatil","Cancha");
 SELECT*FROM Prestamos;
 
+#Vista prestamos
 CREATE VIEW Prestt AS
 SELECT Id_prestamo , Fecha_entre , Fecha_recep , Tipo_prest , Espa_public , Id_User    
 FROM Prestamos
